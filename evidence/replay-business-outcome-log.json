@@ -1,0 +1,48 @@
+{
+  "evidenceVersion": "1.0",
+  "runType": "deterministic-replay",
+  "runId": "replay-1790815358048",
+  "startedAt": "2026-10-01T00:42:38.049Z",
+  "capability": {
+    "id": "lookup-savings-balance",
+    "version": "1.0.0"
+  },
+  "modelUsed": false,
+  "inputs": {
+    "memberId": "M9999"
+  },
+  "steps": [
+    {
+      "stepId": "step-1",
+      "action": "fill",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "textbox",
+        "name": "Member ID"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T00:42:38.571Z",
+      "completedAt": "2026-10-01T00:42:38.584Z",
+      "observedUrl": "http://127.0.0.1:3300/"
+    },
+    {
+      "stepId": "step-2",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "button",
+        "name": "Search"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T00:42:38.888Z",
+      "completedAt": "2026-10-01T00:42:38.913Z",
+      "observedUrl": "http://127.0.0.1:3300/search?member=M9999"
+    }
+  ],
+  "result": {
+    "status": "business_outcome",
+    "code": "MEMBER_NOT_FOUND",
+    "message": "The requested member does not exist."
+  },
+  "completedAt": "2026-10-01T00:42:39.227Z"
+}

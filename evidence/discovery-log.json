@@ -1,0 +1,167 @@
+{
+  "evidenceVersion": "1.0",
+  "runType": "llm-discovery",
+  "runId": "discovery-1790816781742",
+  "startedAt": "2026-10-01T01:06:21.742Z",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "llmUsed": true,
+  "goal": "Find member M1001, open the member, open the savings account, and return the current balance.",
+  "target": {
+    "surface": "web",
+    "baseUrl": "http://127.0.0.1:3300"
+  },
+  "steps": [
+    {
+      "stepNumber": 1,
+      "observedAt": "2026-10-01T01:06:22.747Z",
+      "observation": {
+        "url": "http://127.0.0.1:3300/",
+        "visibleText": "Member Servicing\n\nDemo only — fictional member records.\n\nFind a member\nMember ID\n Search\n\nTry M1001 or M1002.",
+        "controls": [
+          {
+            "tag": "input",
+            "role": "textbox",
+            "text": "",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": "member",
+            "id": "member",
+            "href": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "text": "Search",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": null,
+            "id": null,
+            "href": null
+          }
+        ]
+      },
+      "llmDecision": {
+        "action": "fill",
+        "role": "textbox",
+        "name": "Member ID",
+        "value": "M1001"
+      }
+    },
+    {
+      "stepNumber": 2,
+      "observedAt": "2026-10-01T01:06:23.707Z",
+      "observation": {
+        "url": "http://127.0.0.1:3300/",
+        "visibleText": "Member Servicing\n\nDemo only — fictional member records.\n\nFind a member\nMember ID\n Search\n\nTry M1001 or M1002.",
+        "controls": [
+          {
+            "tag": "input",
+            "role": "textbox",
+            "text": "",
+            "value": "M1001",
+            "ariaLabel": null,
+            "htmlName": "member",
+            "id": "member",
+            "href": null
+          },
+          {
+            "tag": "button",
+            "role": "button",
+            "text": "Search",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": null,
+            "id": null,
+            "href": null
+          }
+        ]
+      },
+      "llmDecision": {
+        "action": "click",
+        "role": "button",
+        "name": "Search"
+      }
+    },
+    {
+      "stepNumber": 3,
+      "observedAt": "2026-10-01T01:06:24.707Z",
+      "observation": {
+        "url": "http://127.0.0.1:3300/search?member=M1001",
+        "visibleText": "Member Servicing\n\nDemo only — fictional member records.\n\nSearch results\n\nAlex Example\n\nOpen member M1001",
+        "controls": [
+          {
+            "tag": "a",
+            "role": "link",
+            "text": "Open member M1001",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": null,
+            "id": null,
+            "href": "/member?member=M1001"
+          }
+        ]
+      },
+      "llmDecision": {
+        "action": "click",
+        "role": "link",
+        "name": "Open member M1001"
+      }
+    },
+    {
+      "stepNumber": 4,
+      "observedAt": "2026-10-01T01:06:25.588Z",
+      "observation": {
+        "url": "http://127.0.0.1:3300/member?member=M1001",
+        "visibleText": "Member Servicing\n\nDemo only — fictional member records.\n\nMember details\n\nMember ID: M1001\n\nName: Alex Example\n\nView savings account",
+        "controls": [
+          {
+            "tag": "a",
+            "role": "link",
+            "text": "View savings account",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": null,
+            "id": null,
+            "href": "/savings?member=M1001"
+          }
+        ]
+      },
+      "llmDecision": {
+        "action": "click",
+        "role": "link",
+        "name": "View savings account"
+      }
+    },
+    {
+      "stepNumber": 5,
+      "observedAt": "2026-10-01T01:06:26.569Z",
+      "observation": {
+        "url": "http://127.0.0.1:3300/savings?member=M1001",
+        "visibleText": "Member Servicing\n\nDemo only — fictional member records.\n\nSavings account\n\nMember ID: M1001\n\nCurrent balance: $1,245.67\n\nNew search",
+        "controls": [
+          {
+            "tag": "a",
+            "role": "link",
+            "text": "New search",
+            "value": "",
+            "ariaLabel": null,
+            "htmlName": null,
+            "id": null,
+            "href": "/"
+          }
+        ]
+      },
+      "llmDecision": {
+        "action": "done",
+        "result": "Current savings balance is $1,245.67"
+      }
+    }
+  ],
+  "result": {
+    "status": "success",
+    "finalResult": "Current savings balance is $1,245.67"
+  },
+  "artifactCreated": "artifacts/lookup-savings.json",
+  "completedAt": "2026-10-01T01:06:26.571Z"
+}

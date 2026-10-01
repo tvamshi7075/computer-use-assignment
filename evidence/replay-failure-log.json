@@ -1,0 +1,123 @@
+{
+  "evidenceVersion": "1.0",
+  "runType": "deterministic-replay",
+  "runId": "replay-1790816009638",
+  "startedAt": "2026-10-01T00:53:29.638Z",
+  "capability": {
+    "id": "lookup-savings-balance",
+    "version": "1.0.0"
+  },
+  "modelUsed": false,
+  "inputs": {
+    "memberId": "M1001"
+  },
+  "steps": [
+    {
+      "stepId": "step-1",
+      "action": "fill",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "textbox",
+        "name": "Member ID"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T00:53:30.177Z",
+      "completedAt": "2026-10-01T00:53:30.189Z",
+      "observedUrl": "http://127.0.0.1:3300/"
+    },
+    {
+      "stepId": "step-2",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "button",
+        "name": "Search"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T00:53:30.495Z",
+      "completedAt": "2026-10-01T00:53:30.519Z",
+      "observedUrl": "http://127.0.0.1:3300/search?member=M1001"
+    },
+    {
+      "stepId": "step-3",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "Open member M1001"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T00:53:30.838Z",
+      "completedAt": "2026-10-01T00:53:30.868Z",
+      "observedUrl": "http://127.0.0.1:3300/member?member=M1001"
+    },
+    {
+      "stepId": "step-4",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "Broken savings account"
+      },
+      "status": "blocked",
+      "startedAt": "2026-10-01T00:53:31.186Z",
+      "blockedAt": "2026-10-01T00:53:36.196Z",
+      "observedUrl": "http://127.0.0.1:3300/savings?member=M1001",
+      "error": {
+        "type": "TimeoutError",
+        "message": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Broken savings account' })\u001b[22m\n"
+      }
+    },
+    {
+      "stepId": "step-4",
+      "action": "click",
+      "status": "completed_by_human",
+      "resumedAt": "2026-10-01T00:53:48.225Z",
+      "observedUrl": "http://127.0.0.1:3300/savings?member=M1001"
+    }
+  ],
+  "interventions": [
+    {
+      "interventionId": "intervention-1790816016197",
+      "status": "human_completed",
+      "requestedAt": "2026-10-01T00:53:36.240Z",
+      "capability": {
+        "id": "lookup-savings-balance",
+        "version": "1.0.0"
+      },
+      "blockedStep": {
+        "id": "step-4",
+        "action": "click",
+        "target": {
+          "strategy": "accessible-role",
+          "role": "link",
+          "name": "Broken savings account"
+        }
+      },
+      "reason": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Broken savings account' })\u001b[22m\n",
+      "observedUrl": "http://127.0.0.1:3300/savings?member=M1001",
+      "screenshot": "screenshots/intervention-1790816016197.png",
+      "instructions": [
+        "Automation is paused.",
+        "Use the currently open browser window.",
+        "Resolve the blocked state manually.",
+        "Do not close the browser.",
+        "Return to the terminal and press ENTER."
+      ],
+      "resumedAt": "2026-10-01T00:53:48.224Z",
+      "urlAfterHuman": "http://127.0.0.1:3300/savings?member=M1001"
+    }
+  ],
+  "result": {
+    "status": "failure",
+    "category": "hard_failure",
+    "failedStep": "step-4",
+    "error": {
+      "type": "Error",
+      "message": "page.waitForTimeout: Target page, context or browser has been closed"
+    },
+    "observedUrl": "http://127.0.0.1:3300/savings?member=M1001",
+    "screenshot": "screenshots/failure-1790816028226.png"
+  },
+  "completedAt": "2026-10-01T00:53:48.226Z"
+}

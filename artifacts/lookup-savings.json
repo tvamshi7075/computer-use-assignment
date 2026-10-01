@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0",
+  "capability": {
+    "id": "lookup-savings-balance",
+    "name": "Lookup Savings Balance",
+    "description": "Find a fictional member in the demo banking application and return the current savings balance.",
+    "version": "1.0.0"
+  },
+  "target": {
+    "surface": "web",
+    "baseUrl": "http://127.0.0.1:3300",
+    "allowedOrigins": [
+      "http://127.0.0.1:3300"
+    ]
+  },
+  "inputs": {
+    "memberId": {
+      "type": "string",
+      "required": true,
+      "description": "Fictional member identifier such as M1001.",
+      "pattern": "^M\\d{4}$"
+    }
+  },
+  "outputs": {
+    "currentBalance": {
+      "type": "string",
+      "description": "Current savings account balance."
+    }
+  },
+  "steps": [
+    {
+      "id": "step-1",
+      "action": "fill",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "textbox",
+        "name": "Member ID"
+      },
+      "timeoutMs": 5000,
+      "risk": "safe",
+      "value": "{{memberId}}"
+    },
+    {
+      "id": "step-2",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "button",
+        "name": "Search"
+      },
+      "timeoutMs": 5000,
+      "risk": "safe"
+    },
+    {
+      "id": "step-3",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "Open member {{memberId}}"
+      },
+      "timeoutMs": 5000,
+      "risk": "safe"
+    },
+    {
+      "id": "step-4",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "View savings account"
+      },
+      "timeoutMs": 5000,
+      "risk": "safe"
+    }
+  ],
+  "checkpoint": {
+    "type": "text-visible",
+    "text": "Current balance",
+    "description": "The savings account page must display the current balance."
+  },
+  "extraction": {
+    "currentBalance": {
+      "strategy": "aria-label",
+      "value": "Current balance"
+    }
+  },
+  "safety": {
+    "allowedActions": [
+      "fill",
+      "click",
+      "read"
+    ],
+    "riskLevel": "read-only",
+    "allowedOrigins": [
+      "http://127.0.0.1:3300"
+    ],
+    "requireHumanForRiskyActions": true,
+    "persistRawSensitiveData": false
+  },
+  "discovery": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "llmUsed": true,
+    "discoveredAt": "2026-10-01T01:06:26.570Z",
+    "finalResult": "Current savings balance is $1,245.67"
+  }
+}

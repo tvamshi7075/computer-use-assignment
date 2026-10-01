@@ -1,0 +1,30 @@
+{
+  "interventionId": "intervention-1790816037223",
+  "status": "human_completed",
+  "requestedAt": "2026-10-01T00:53:57.263Z",
+  "capability": {
+    "id": "lookup-savings-balance",
+    "version": "1.0.0"
+  },
+  "blockedStep": {
+    "id": "step-4",
+    "action": "click",
+    "target": {
+      "strategy": "accessible-role",
+      "role": "link",
+      "name": "Broken savings account"
+    }
+  },
+  "reason": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Broken savings account' })\u001b[22m\n",
+  "observedUrl": "http://127.0.0.1:3300/member?member=M1001",
+  "screenshot": "screenshots/intervention-1790816037223.png",
+  "instructions": [
+    "Automation is paused.",
+    "Use the currently open browser window.",
+    "Resolve the blocked state manually.",
+    "Do not close the browser.",
+    "Return to the terminal and press ENTER."
+  ],
+  "resumedAt": "2026-10-01T00:54:22.868Z",
+  "urlAfterHuman": "http://127.0.0.1:3300/savings?member=M1001"
+}

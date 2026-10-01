@@ -1,0 +1,78 @@
+{
+  "evidenceVersion": "1.0",
+  "runType": "deterministic-replay",
+  "runId": "replay-1790817275865",
+  "startedAt": "2026-10-01T01:14:35.865Z",
+  "capability": {
+    "id": "lookup-savings-balance",
+    "version": "1.0.0"
+  },
+  "modelUsed": false,
+  "inputs": {
+    "memberId": "M1001"
+  },
+  "steps": [
+    {
+      "stepId": "step-1",
+      "action": "fill",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "textbox",
+        "name": "Member ID"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T01:14:36.388Z",
+      "completedAt": "2026-10-01T01:14:36.399Z",
+      "observedUrl": "http://127.0.0.1:3300/"
+    },
+    {
+      "stepId": "step-2",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "button",
+        "name": "Search"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T01:14:36.707Z",
+      "completedAt": "2026-10-01T01:14:36.735Z",
+      "observedUrl": "http://127.0.0.1:3300/search?member=M1001"
+    },
+    {
+      "stepId": "step-3",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "Open member M1001"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T01:14:37.063Z",
+      "completedAt": "2026-10-01T01:14:37.097Z",
+      "observedUrl": "http://127.0.0.1:3300/member?member=M1001"
+    },
+    {
+      "stepId": "step-4",
+      "action": "click",
+      "target": {
+        "strategy": "accessible-role",
+        "role": "link",
+        "name": "View savings account"
+      },
+      "status": "success",
+      "startedAt": "2026-10-01T01:14:37.411Z",
+      "completedAt": "2026-10-01T01:14:37.444Z",
+      "observedUrl": "http://127.0.0.1:3300/savings?member=M1001"
+    }
+  ],
+  "interventions": [],
+  "result": {
+    "status": "success",
+    "outputs": {
+      "currentBalance": "$1,245.67"
+    },
+    "checkpointVerified": true,
+    "humanIntervention": false
+  },
+  "completedAt": "2026-10-01T01:14:37.765Z"
+}
